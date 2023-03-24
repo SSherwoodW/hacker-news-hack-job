@@ -100,6 +100,9 @@ class StoryList {
       data: {token: token}
     })
     this.stories = this.stories.filter(story => story.storyId !== storyId);
+
+    user.ownStories = user.ownStories.filter(story => story.storyId !== storyId);
+    user.favorites = user.favorites.filter(story => story.storyId !== storyId);
   }
 }
 

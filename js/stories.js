@@ -20,7 +20,7 @@ async function getAndShowStoriesOnStart() {
  */
 
 function generateStoryMarkup(story, showDeleteButton = false) {
-  // console.debug("generateStoryMarkup", story);
+  console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName();
   const showStar = Boolean(currentUser);
@@ -89,6 +89,9 @@ async function submitStoryToPage (evt) {
   $userStoriesList.append($story);
 
   $allStoriesList.show();
+
+  $submitForm.slideUp("slow");
+  $submitForm.trigger("reset");
 }
 
 $submitForm.on("submit", submitStoryToPage);
@@ -111,6 +114,7 @@ function putFavoriteStoriesOnPage () {
   console.debug("putFavoriteStoriesOnPage");
 
   $favoriteStories.empty();
+  hidePageComponents();
 
   if(currentUser.favorites.length === 0){
     $favoriteStories.append("<h4>No favorites added!</h4>")
@@ -119,6 +123,7 @@ function putFavoriteStoriesOnPage () {
       const $story = generateStoryMarkup(story);
       $favoriteStories.append($story);
     }
+    $favoriteStories.remove("h4");
   }
 
   $favoriteStories.show();
@@ -147,6 +152,7 @@ $storiesLists.on("click", ".star", favoriteUnfavorite);
 
 function putUserStoriesOnPage(){
   console.debug('putUserStoriesOnPage');
+  
 
   $userStoriesList.empty();
 
@@ -157,6 +163,7 @@ function putUserStoriesOnPage(){
       let $story = generateStoryMarkup(story, true);
       $userStoriesList.append($story);
     }
+    $userStoriesList.remove('h4');
   }
   $userStoriesList.show();
 }
