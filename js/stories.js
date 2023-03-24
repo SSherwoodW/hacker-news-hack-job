@@ -90,7 +90,7 @@ async function submitStoryToPage (evt) {
 
   $allStoriesList.show();
 
-  $submitForm.slideUp("slow");
+  $submitForm.hide();
   $submitForm.trigger("reset");
 }
 

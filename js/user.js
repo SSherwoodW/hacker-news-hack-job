@@ -105,13 +105,15 @@ function saveUserCredentialsInLocalStorage() {
  * - show the stories list
  * - update nav bar options for logged-in user
  * - generate the user profile part of the page
+ * - hide credentials forms
  */
 
 function updateUIOnUserLogin() {
   console.debug("updateUIOnUserLogin");
 
   $allStoriesList.show();
-  hidePageComponents();
+  $loginForm.hide();
+  $signupForm.hide();
 
   updateNavOnLogin();
 }

@@ -22,11 +22,11 @@ class Story {
   }
 
   /** Parses hostname out of URL and returns it. */
+  //getting error here but it works? 
 
   getHostName() {
-    
     return new URL(this.url).host;
-  }
+  } 
 }
 
 
@@ -53,11 +53,7 @@ class StoryList {
     //  class directly. Why doesn't it make sense for getStories to be an
     //  instance method? 
     
-    //This is a static method because Stories only needs to exist once in StoryList, not in every class instance--whereas addStory will be a new instance in StoryList class every time. 
-    //Static method can only be called on Class itself, not instantiations. StoryList.getStories works, but if const goodStories = new StoryList,
-    // then goodStories.getStories will not work. can only be called on the class itself.
-    // static methods are used to implement functions that belong to the class as a whole, but not to any particular object of it.
-
+    
     // query the /stories endpoint (no auth required)
     const response = await axios({
       url: `${BASE_URL}/stories`,

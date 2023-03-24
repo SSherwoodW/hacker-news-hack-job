@@ -25,6 +25,7 @@ function navSubmitClick(evt){
 $navSubmit.on("click", navSubmitClick);
 
 
+
 /** Show login/signup on click on "login" */
 
 function navLoginClick(evt) {
